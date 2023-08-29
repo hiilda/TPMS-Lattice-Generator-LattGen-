@@ -1,1 +1,1 @@
-# TPMS-Generator-
+# TPMS-Lattice-Generator-
