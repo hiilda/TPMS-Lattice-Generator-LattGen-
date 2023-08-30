@@ -1,1 +1,2 @@
-# TPMS-Lattice-Generator-
+# TPMS Lattice Generator (LatGen)
+The TPMS Lattice Generator is a tool that allows you to create and manipulate Triply Periodic Minimal Surface (TPMS) lattices. These lattices exhibit fascinating structural properties and find applications in various fields such as materials science, architecture, and design. With this tool, you can generate up to 30 predefined TPMS patterns with uniform or graded density. Furthermore, it facilitates the import of existing meshes for lattice integration and enables the seamless export of the resulting object as an STL file.
