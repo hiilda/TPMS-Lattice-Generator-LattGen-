@@ -5,7 +5,7 @@ Y = 2*pi*y1;
 Z = 2*pi*z1;
 
 switch lattice_type
-    case "Primitive Schwartz"
+    case "Primitive Schwartz Surface"
         f = cos(X)+cos(Y)+cos(Z);
     case "Double P Surface"
         f = 0.5*(cos(X).*cos(Y)+cos(Y).*cos(Z)+cos(Z).*cos(X))+0.2*(cos(2*X)+cos(2*Y)+cos(2*Z));
@@ -23,7 +23,7 @@ switch lattice_type
         f = 2*(cos(X).*cos(Y)+cos(Y).*cos(Z)+cos(Z).*cos(X))-(cos(2*X)+cos(2*Y)+cos(2*Z));
     case "FRD Prime Surface"
         f = 4*(cos(X).*cos(Y).*cos(Z))-(cos(2*X).*cos(2*Y)+cos(2*X).*cos(2*Z)+cos(2*Y).*cos(2*Z));
-    case "I2-Y"
+    case "I2-Y Surface"
         f = -2*(sin(2*X).*cos(Y).*sin(Z) + sin(X).*sin(2*Y).*cos(Z) + cos(X).*sin(Y).*sin(2*Z)) + cos(2*X).*cos(2*Y) + cos(2*Y).*cos(2*Z) + cos(2*X).*cos(2*Z);
     case "G Prime 1 Surface"
         f = 5*(sin(2*X).*sin(Z).*cos(Y)+sin(2*Y).*sin(X).*cos(Z)+sin(2*Z).*sin(Y).*cos(X))+(cos(2*X).*cos(2*Y)+cos(2*Y).*cos(2*Z)+cos(2*Z).*cos(2*X));
@@ -42,7 +42,7 @@ switch lattice_type
     case "Fischer-Koch Surface"
         f = (cos(X).*cos(Y)+cos(Y).*cos(Z)+cos(Z).*cos(X))-(cos(2*X)+cos(2*Y)+cos(2*Z));
     case "Bionic Bone 1 Surface"
-        f = 20 *(cos(X).*sin(Y)+cos(Y).*sin(Z)+cos(Z).*sin(X))-0.5*(cos(2*X).*cos(2*Y)+cos(2*Y).*cos(2*Z)+cos(2*Z).*cos(2*X))-4;
+        f = 20*(cos(X).*sin(Y)+cos(Y).*sin(Z)+cos(Z).*sin(X))-0.5*(cos(2*X).*cos(2*Y)+cos(2*Y).*cos(2*Z)+cos(2*Z).*cos(2*X))-4;
     case "Bionic Bone 2 Surface"
         f = 10*(cos(X).*sin(Y)+cos(Y).*sin(Z)+cos(Z).*sin(X))-2*(cos(2*X).*cos(2*Y)+cos(2*Y).*cos(2*Z)+cos(2*Z).*cos(2*X))-12;
     case "Octo 1 Surface"
@@ -53,8 +53,6 @@ switch lattice_type
         f = 0.6*(cos(X).*cos(Y).*cos(Z))+0.4*(cos(X)+cos(Y)+cos(Z))+0.2*(cos(2*X).*cos(2*Y).*cos(2*Z))+0.2*(cos(2*X)+cos(2*Y)+cos(2*Z))+0.1*(cos(3*X)+cos(3*Y)+cos(3*Z))+0.2*(cos(X).*cos(Y)+cos(Y).*cos(Z)+cos(Z).*cos(X));
     case "C(Y) Surface"
         f = sin(X).*sin(Y).*sin(Z)+sin(2*X).*sin(Y)+sin(2*Y).*sin(Z)+sin(2*Z).*sin(X)-cos(X).*cos(Y).*cos(Z)+sin(2*X).*cos(Z)+sin(2*Y).*cos(X)+sin(2*Z).*cos(Y);
-    case "Scherk Surface"
-        f = sin(Z) - sinh(X).*sinh(Y);
     case "Black D Surface"
         f = sin(X).*sin(Y).*sin(Z)+sin(X).*cos(Y).*cos(Z)+cos(X).*sin(Y).*cos(Z)+cos(X).*cos(Y).*sin(Z);
     case "FRD Surface"
@@ -66,5 +64,9 @@ switch lattice_type
     case "Split P Surface"
         f = 1.1*(sin(2*X).*sin(Z).*cos(Y)+sin(2*Y).*sin(X).*cos(Z)+sin(2*Z).*sin(Y).*cos(X))-0.2*(cos(2*X).*cos(2*Y)+cos(2*Y).*cos(2*Z)+cos(2*Z).*cos(2*X))-0.4*(cos(X)+cos(Y)+cos(Z));
     case "Custom Function"
-        f = custom_function;
+        if ischar(custom_function) == 1
+            f = eval(custom_function);
+        else
+            f = custom_function;
+        end
 end

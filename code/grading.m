@@ -1,12 +1,11 @@
 function [isovalue_new,app_t_new] = grading(rd1,rd2,app_t1,app_t2,imported_mesh,inp,len,bre,wid,cell_len_x,cell_len_y,cell_len_z,...
     lattice_type,structure_type, out_p, x1,y1,z1,volumeFill,equation_type,m1,m2,m3,rr,relDenCheck,custom_function,positionX,positionY,positionZ)
 
-x_c = len*positionX; y_c = bre*positionY; z_c = wid*positionZ;      %reference frame
+x_c = positionX; y_c = positionY; z_c = positionZ;      %reference frame
 
 switch structure_type
     case "Sheet"
-        %isovalue = zeros(size(x1));
-        if strcmp(relDenCheck,'Yes')
+        if relDenCheck == true
             [~,at1] = rel_den(rd1,imported_mesh,inp,len,bre,wid,cell_len_x,cell_len_y,cell_len_z,... %uses relative density to determine thickness of grading
                 [],lattice_type,structure_type, out_p, x1,y1,z1,volumeFill,relDenCheck,custom_function);
             [~,at2] = rel_den(rd2,imported_mesh,inp,len,bre,wid,cell_len_x,cell_len_y,cell_len_z,...
@@ -40,9 +39,9 @@ switch structure_type
 
     case "Solid"
 
-        [is1,~] = rel_den(app,rd1,imported_mesh,inp,len,bre,wid,cell_len_x,cell_len_y,cell_len_z,...
+        [is1,~] = rel_den(rd1,imported_mesh,inp,len,bre,wid,cell_len_x,cell_len_y,cell_len_z,...
             [],lattice_type,structure_type, out_p, x1,y1,z1,volumeFill,relDenCheck,custom_function);
-        [is2,~] = rel_den(app,rd2,imported_mesh,inp,len,bre,wid,cell_len_x,cell_len_y,cell_len_z,...
+        [is2,~] = rel_den(rd2,imported_mesh,inp,len,bre,wid,cell_len_x,cell_len_y,cell_len_z,...
             [],lattice_type,structure_type, out_p, x1,y1,z1,volumeFill,relDenCheck,custom_function);
 
         xx = x1-x_c/cell_len_x; yy = y1-y_c/cell_len_y; zz = z1-z_c/cell_len_z;
