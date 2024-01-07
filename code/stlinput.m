@@ -1,7 +1,9 @@
-function [out_p,x,y,z] = stlinput(inp,gridpoints)
+function [out_p,x,y,z] = stlinput(app,inp,gridpoints)
 st = stlread(inp);
+
 % get stl vertices
 stp = st.Points; stf = st.ConnectivityList;
+
 % get bounding box
 stp_xmax = max(stp(:,1)); stp_xmin = min(stp(:,1));
 stp_ymax = max(stp(:,2)); stp_ymin = min(stp(:,2));
@@ -15,7 +17,7 @@ z = linspace(stp_zmin, stp_zmax, gridpoints);
 %create meshgrid for x, y, and z
 [x1,y1,z1] = meshgrid(x,y,z);
 
-out = intriangulation(stp,stf,[x1(:),y1(:),z1(:)]); out(out<0) = 0;
+out = intriangulation(app,stp,stf,[x1(:),y1(:),z1(:)]); out(out<0) = 0;
 out_p = reshape(out,gridpoints,gridpoints,gridpoints);
 
 

@@ -1,4 +1,9 @@
-function f = tpms_function(x1,y1,z1,lattice_type,custom_function)
+function f = tpms_function(app,x1,y1,z1,lattice_type,custom_function)
+ %check if app fored termination
+drawnow;
+if app.stopFlag
+    return
+end
 
 X = 2*pi*x1;
 Y = 2*pi*y1;
