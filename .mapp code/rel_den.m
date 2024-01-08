@@ -1,6 +1,6 @@
 function [isovalue_new,app_t_new] = rel_den(app,rd_in,imported_mesh,inp,len,bre,wid,cell_len_x,cell_len_y,...
     cell_len_z,app_t,lattice_type,structure_type,out_p,x1,y1,z1,volumeFill,relDenCheck,custom_function)
- %check if app fored termination
+ %check if app forced termination
 drawnow;
 if app.stopFlag
     return
