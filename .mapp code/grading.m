@@ -1,6 +1,6 @@
 function [isovalue_new,app_t_new] = grading(app,rd1,rd2,app_t1,app_t2,imported_mesh,inp,len,bre,wid,cell_len_x,cell_len_y,cell_len_z,...
     lattice_type,structure_type, out_p, x1,y1,z1,volumeFill,equation_type,m1,m2,m3,rr,relDenCheck,custom_function,positionX,positionY,positionZ)
- %check if app fored termination
+ %check if app forced termination
 drawnow;
 if app.stopFlag
     return

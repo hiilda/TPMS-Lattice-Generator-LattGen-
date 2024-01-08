@@ -177,7 +177,7 @@ facetCROSSLIST = zeros(1,1e3);  % uses countindex: nf
 nm = size(meshXYZmin,1);
 for loop = 1:length(OUTPUT),
 
-    %check if app fored termination
+    %check if app forced termination
     drawnow;
     if app.stopFlag
         return
