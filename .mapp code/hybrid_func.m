@@ -1,6 +1,6 @@
 function [F,V] = hybrid_func(app,rd1,app_t1,imported_mesh,inp,len,bre,wid,out_p,x1,y1,z1,cell_len_x,cell_len_y, cell_len_z,lattice_type,lattice_type2,structure_type,volumeFill, ...
     custom_function,custom_function2,k,hybridEquation,a,b,c,rr,relDenCheck,positionX,positionY,positionZ)
- %check if app fored termination
+ %check if app forced termination
 drawnow;
 if app.stopFlag
     return
