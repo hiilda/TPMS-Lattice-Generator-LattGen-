@@ -1,6 +1,6 @@
 function [F,V] = imp_model_func(app,out_p,x1,y1,z1,cell_len_x,cell_len_y,...
     cell_len_z,app_t,isovalue,lattice_type,structure_type,volumeFill,custom_function)
- %check if app fored termination
+ %check if app forced termination
 drawnow;
 if app.stopFlag
     return
